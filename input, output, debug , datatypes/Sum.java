@@ -2,12 +2,12 @@ import java.util.Scanner;
 
 public class Sum {
     public static void main(String[] args) {
-        System.out.println("Enter two integers: ");
+        System.out.print("Enter two integers: ");
         Scanner input = new Scanner(System.in);
         
-        int a = input.nextInt();
-        int b = input.nextInt();
-        int c = a + b;
+        float a = input.nextFloat();
+        float b = input.nextFloat();
+        float c = a + b;
         
         System.out.println("Sum = "+c);
     }
