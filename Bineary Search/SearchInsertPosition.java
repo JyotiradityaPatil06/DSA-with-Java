@@ -18,7 +18,6 @@ public class SearchInsertPosition {
                     start = mid + 1;
                 }
             }
-            return start;
         }
     }
 
