@@ -5,11 +5,13 @@ import java.util.ArrayList;
 public class LinearSearch {
     public static void main(String[] args) {
         int[] arr = { 2, 3, 1, 4, 4, 5 };
-        System.out.println(find(arr, 2, 0));
-        System.out.println(findInd(arr, 2, 0));
-        System.out.println(findIndLast(arr, 2, arr.length - 1));
-        findAll(arr, 4, 0);
-        System.out.println(list);
+        // System.out.println(find(arr, 2, 0));
+        // System.out.println(findInd(arr, 2, 0));
+        // System.out.println(findIndLast(arr, 2, arr.length - 1));
+        // findAll(arr, 4, 0);
+        // System.out.println(list);
+
+        System.out.println(findAllInd2(arr, 4, 0));
     }
 
     // return boolean
@@ -69,7 +71,27 @@ public class LinearSearch {
         if (arr[index] == target) {
             list.add(index);
         }
-        findAllInd(arr, target, index + 1, list);
+        return findAllInd(arr, target, index + 1, list);
+    }
+
+    // return the list without passing the argument
+    static ArrayList<Integer> findAllInd2(int[] arr, int target, int index) {
+
+        ArrayList<Integer> list = new ArrayList<>();
+
+        if (index == arr.length) {
+            return list;
+        }
+
+        if (arr[index] == target) {
+            list.add(index);
+        }
+
+        ArrayList<Integer> ansFromBelowCalls = findAllInd2(arr, target, index + 1);
+
+        list.addAll(ansFromBelowCalls);
+
+        return list;
     }
 
 }
