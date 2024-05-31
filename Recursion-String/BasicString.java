@@ -1,0 +1,5 @@
+-String;
+
+public class BasicString {
+    
+}
