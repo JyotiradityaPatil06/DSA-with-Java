@@ -12,6 +12,7 @@ public class NKnights {
         if (knights == 0) {
             display(board);
             System.out.println();
+            return;
         }
 
         if (row == board.length - 1 && col == board.length) {
