@@ -1,4 +1,4 @@
-package LinkedList;
+package LinkedList.SinglyLinkedList;
 
 import Recursion.nto1;
 
@@ -59,6 +59,23 @@ public class LL {
 
     }
 
+    // INSERTION USING RECURSION
+    public void insertRec(int val, int index) {
+        head = insertRec(val, index, head);
+    }
+
+    private Node insertRec(int val, int index, Node node) {
+
+        if (index == 0) {
+            Node temp = new Node(val, node);
+            size++;
+            return temp;
+        }
+
+        node.next = insertRec(val, --index, node.next);
+        return node;
+    }
+
     // DELETING HEAD
     public int deleteFirst() {
         int val = head.value;
@@ -100,12 +117,42 @@ public class LL {
         return val;
     }
 
+    // REVERSING THE NODE
+    public Node reverse(Node node) {
+        Node prev = null;
+        Node current = node;
+        Node next = null;
+
+        while (current != null) {
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+
+        node = prev;
+        return node;
+    }
+
     public Node get(int index) {
         Node node = head;
         for (int i = 0; i < index; i++) {
             node = node.next;
         }
         return node;
+    }
+
+    // Reversing the linked List Recursively
+    private void reverseRec(Node node) {
+        if (node == tail) {
+            head = tail;
+            return;
+        }
+
+        reverseRec(node.next);
+        tail.next = node;
+        tail = node;
+        tail.next = null;
     }
 
     // PRINTING A NODE
