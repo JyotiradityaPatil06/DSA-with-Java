@@ -81,6 +81,8 @@ public class DLL {
         }
     }
 
+
+    // DISPlAY
     public void display() {
         Node node = head;
         Node last = null;
